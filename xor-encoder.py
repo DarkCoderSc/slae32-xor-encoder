@@ -245,19 +245,19 @@ info("Done.")
 #		
 if (reg_size == 8):		
 	counter_opcode = b"\xb1"
-	counter_opcode += round(shellcode_length).to_bytes(1, byteorder="little")
+	counter_opcode += shellcode_length.to_bytes(1, byteorder="little")
 
 	jmp_get_shellcode_opcode = b"\x1a"
 	call_decoder_opcode = b"\xe1"
 elif (reg_size == 16):
 	counter_opcode = b"\x66\xb9"
-	counter_opcode += round(shellcode_length).to_bytes(2, byteorder="little")
+	counter_opcode += shellcode_length.to_bytes(2, byteorder="little")
 
 	jmp_get_shellcode_opcode = b"\x1c"
 	call_decoder_opcode = b"\xdf"
 elif (reg_size == 32):		
 	counter_opcode = b"\xb9"
-	counter_opcode += round(shellcode_length).to_bytes(4, byteorder="little")	
+	counter_opcode += shellcode_length.to_bytes(4, byteorder="little")	
 
 	jmp_get_shellcode_opcode = b"\x1d"
 	call_decoder_opcode = b"\xde"	
